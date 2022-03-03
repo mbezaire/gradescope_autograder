@@ -33,21 +33,21 @@ then
     cd $src_files
 fi
 
-# Copy student code into folder where we'll execute it
-for i in ${prgs[@]}
-do
-    cp ${subm_files}${i}.java $src_files
-done
+# # Copy student code into folder where we'll execute it
+# for i in ${prgs[@]}
+# do
+#     cp ${subm_files}${i}.java $src_files
+# done
 
-go_there
+# go_there
 
 #####################################
 # Compile sample code               #
 #####################################
 echo "COMPILING AUTOGRADER CODE..."
-javac -classpath junit/junit-4.13-beta-2.jar:checkstyle/checkstyle-8.28-all.jar:. AutograderMain.java
-javac ${prgs[0]}Sample.java
-come_back
+# javac -classpath junit/junit-4.13-beta-2.jar:checkstyle/checkstyle-8.28-all.jar:. AutograderMain.java
+# javac ${prgs[0]}Sample.java
+# come_back
 
 
 ######################
@@ -56,18 +56,18 @@ come_back
 echo ''
 echo 'Now creating JSON output'
 
-json_prg="AutograderMain"
-rslt_folder=$results
+# json_prg="AutograderMain"
+# rslt_folder=$results
 
 # Note in the local case, the result folder is in the source file
-if [ "$where_to_run" == "local" ]
-then
-    cd $src_files
-    rslt_folder="results/"
-fi
+# if [ "$where_to_run" == "local" ]
+# then
+#     cd $src_files
+#     rslt_folder="results/"
+# fi
 
-    java -classpath junit/*:checkstyle/*:. $json_prg ${prgs[0]} 7 14 > ${rslt_folder}results.json 
-    rm *.out
+#     java -classpath junit/*:checkstyle/*:. $json_prg ${prgs[0]} 7 14 > ${rslt_folder}results.json 
+#     rm *.out
 echo ''
 echo 'Autograder script ended'
 
